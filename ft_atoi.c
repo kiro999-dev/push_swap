@@ -6,7 +6,7 @@
 /*   By: zkhourba <zkhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 14:31:40 by zkhourba          #+#    #+#             */
-/*   Updated: 2025/01/06 12:30:20 by zkhourba         ###   ########.fr       */
+/*   Updated: 2025/01/06 12:42:07 by zkhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,7 @@ long long	ft_atoi(const char *str)
 		res = res * 10 + (str[i] - '0');
 		i++;
 	}
+	if(str[i] != '\0')
+		flag = 0;
 	return (res * flag);
 }

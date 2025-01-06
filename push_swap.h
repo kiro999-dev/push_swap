@@ -6,7 +6,7 @@
 /*   By: zkhourba <zkhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 19:35:17 by zkhourba          #+#    #+#             */
-/*   Updated: 2025/01/06 12:24:16 by zkhourba         ###   ########.fr       */
+/*   Updated: 2025/01/06 16:39:17 by zkhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-char	**ft_split(const char *s, char c);
-void	ft_putstr_fd(char *s, int fd);
-void	 ft_free(char **ptr);
-long long	ft_atoi(const char *str);
+
 typedef struct s_stack 
 {
 	int				number;
@@ -27,5 +24,16 @@ typedef struct s_stack
 	struct s_stack	*next;
 }	t_stack;
 
+char		**ft_split(const char *s, char c);
+void		ft_putstr_fd(char *s, int fd);
+void		ft_free(char **ptr);
+long long	ft_atoi(const char *str);
+int			ft_strncmp(const char *s1, const char *s2, size_t n);
+void 		add_to_stack(t_stack **head,int num);
+void 		free_stack(t_stack **head);
+void		parsing(char **argv, t_stack **head);
+void 		s(t_stack **stack,int flag);
+void   		pa(t_stack **stack_a ,t_stack **stack_b);
+void   		pb(t_stack **stack_a ,t_stack **stack_b);
 
 #endif 
