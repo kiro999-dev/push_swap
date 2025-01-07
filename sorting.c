@@ -6,7 +6,7 @@
 /*   By: zkhourba <zkhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 16:21:57 by zkhourba          #+#    #+#             */
-/*   Updated: 2025/01/07 18:50:16 by zkhourba         ###   ########.fr       */
+/*   Updated: 2025/01/07 19:03:44 by zkhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,25 +88,23 @@ void sort_the_list(t_stack **a,t_stack **b,int n,int range)
 	int		i;
 
 	i = 0;
-	top = *a;
+
 	while (n)
 	{
+		top = *a;
 		if(top->index <= i)
 		{
 			pb(a,b);
-			ft_putstr_fd("here1\n",2);
 			i++;
 		}
-		else if(top->index <= (i+ range))
+		else if(top->index <= (i + range))
 		{
 			pb(a,b);
-			// r(b,0);
+			r(b,0);
 			i++;
-			ft_putstr_fd("here2\n",2);
 		}
 		else
 			r(a,1);
-		top = top->next;
 		n--;
 	}
 	
