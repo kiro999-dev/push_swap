@@ -6,12 +6,12 @@
 /*   By: zkhourba <zkhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 13:10:16 by zkhourba          #+#    #+#             */
-/*   Updated: 2025/01/06 14:22:58 by zkhourba         ###   ########.fr       */
+/*   Updated: 2025/01/07 15:38:57 by zkhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+#include <stdio.h>
 int check_dup(t_stack *head, int num)
 {
 	if (head == NULL)
@@ -41,12 +41,13 @@ void check_table(char **table, t_stack **head)
 	if(table[0] == NULL)
 		(ft_putstr_fd("Error\n",2),free(table),exit(1));
 	i = 0;
+	num = 0;
 	while (table[i])
 	{
 		num = ft_atoi(table[i]);
 		if(num > INT_MAX || check_num(num,table[i]) || check_dup(*head,num))
 		{
-			free_stack(head);
+			// free_stack(head);
 			(ft_putstr_fd("Error\n",2),ft_free(table),exit(1));
 		}
 		add_to_stack(head,num);
@@ -64,6 +65,7 @@ void	pars_arg(char *arg, t_stack **head)
 	check_table(table,head);
 	ft_free(table);
 }
+
 void	parsing(char **argv, t_stack **head)
 {
 

@@ -1,5 +1,5 @@
 SRC =   ft_atoi.c ft_putstr_fd.c ft_split.c ft_strncmp.c parsing.c push_swap_free.c \
-		push_swap_list.c push_swap_op.c push_swap.c 
+		push_swap_list.c push_swap_op_1.c  push_swap_op_2.c push_swap.c 
 OBJ = $(SRC:.c=.o)
 NAME = push_swap
 CFLAGS = -Wall -Wextra -Werror

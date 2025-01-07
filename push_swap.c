@@ -6,7 +6,7 @@
 /*   By: zkhourba <zkhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 19:35:20 by zkhourba          #+#    #+#             */
-/*   Updated: 2025/01/06 16:42:07 by zkhourba         ###   ########.fr       */
+/*   Updated: 2025/01/07 16:17:14 by zkhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,10 @@ int main(int argc , char **argv)
 	stack_a = NULL;
 	stack_b = NULL;
 	parsing(argv,&stack_a);
-	// sorting(&stack_a,stack_b);
-	// s(&stack_a,1);
-	pb(&stack_a,&stack_b);
 	while ((stack_a))
 	{
+		printf("a:%d\n",stack_a->number);
 		stack_a =stack_a->next;
 	}
-	
 	return (0);
 }

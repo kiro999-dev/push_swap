@@ -6,7 +6,7 @@
 /*   By: zkhourba <zkhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 19:35:17 by zkhourba          #+#    #+#             */
-/*   Updated: 2025/01/06 16:39:17 by zkhourba         ###   ########.fr       */
+/*   Updated: 2025/01/07 16:19:45 by zkhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,10 @@ void		parsing(char **argv, t_stack **head);
 void 		s(t_stack **stack,int flag);
 void   		pa(t_stack **stack_a ,t_stack **stack_b);
 void   		pb(t_stack **stack_a ,t_stack **stack_b);
+void 		r(t_stack **stack,int flag);
+void 		rev_r(t_stack **stack,int flag);
+int 		list_len(t_stack *stack);
+t_stack 	*ft_last(t_stack *stack);
+void		rrr(t_stack **stack_a,t_stack **stack_b,int flag);
 
 #endif 
