@@ -6,7 +6,7 @@
 /*   By: zkhourba <zkhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 13:10:16 by zkhourba          #+#    #+#             */
-/*   Updated: 2025/01/07 15:38:57 by zkhourba         ###   ########.fr       */
+/*   Updated: 2025/01/07 18:31:30 by zkhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void check_table(char **table, t_stack **head)
 			// free_stack(head);
 			(ft_putstr_fd("Error\n",2),ft_free(table),exit(1));
 		}
-		add_to_stack(head,num);
+		add_to_stack(head,num,i);
 		i++;
 	}
 }
