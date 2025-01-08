@@ -6,32 +6,30 @@
 /*   By: zkhourba <zkhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 16:45:25 by zkhourba          #+#    #+#             */
-/*   Updated: 2025/01/07 16:19:34 by zkhourba         ###   ########.fr       */
+/*   Updated: 2025/01/08 00:46:49 by zkhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void r(t_stack **stack,int flag)
+void r(t_stack **stack, int flag)
 {
-	t_stack *top;
-	t_stack *last;
-	
-	if(stack == NULL)
-		return ;
-	if(*stack == NULL)
-		return ;
-	if(flag)
-		ft_putstr_fd("ra\n",1);
-	else
-		ft_putstr_fd("rb\n",1);
-	
-	last =ft_last(*stack);
-	top = *stack;
-	(*stack) = (*stack)->next;
-	last->next = top;
-	top->next = NULL;
-	
+    t_stack *top;
+    t_stack *last;
+
+    if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+        return;
+
+    if (flag)
+        ft_putstr_fd("ra\n", 1);
+    else
+        ft_putstr_fd("rb\n", 1);
+
+    top = *stack;           
+    *stack = (*stack)->next;   
+    top->next = NULL;          
+    last = ft_last(*stack);   
+    last->next = top;        
 }
 void	rr(t_stack **stack_a,t_stack **stack_b)
 {

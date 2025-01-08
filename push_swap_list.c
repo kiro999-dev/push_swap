@@ -6,7 +6,7 @@
 /*   By: zkhourba <zkhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 11:14:13 by zkhourba          #+#    #+#             */
-/*   Updated: 2025/01/07 18:39:58 by zkhourba         ###   ########.fr       */
+/*   Updated: 2025/01/07 22:04:29 by zkhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,18 @@ t_stack *creat_node(int num,int pos)
 void add_to_stack(t_stack **head,int num,int pos)
 {
 	t_stack *node;
-	 
+	t_stack *tmp;
+	
+	node = creat_node(num,pos);
 	if(head == NULL)
 		return ;
-	node = creat_node(num,pos);
-	node->next = *head;
-	*head = node;  
+	if(*head == NULL)
+	{
+		*head =node;
+		return;
+	}
+	tmp = ft_last(*head);
+	tmp->next = node;
 }
 t_stack *ft_last(t_stack *stack)
 {

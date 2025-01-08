@@ -6,7 +6,7 @@
 /*   By: zkhourba <zkhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 19:35:20 by zkhourba          #+#    #+#             */
-/*   Updated: 2025/01/07 18:59:55 by zkhourba         ###   ########.fr       */
+/*   Updated: 2025/01/08 02:58:51 by zkhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ int main(int argc , char **argv)
 		mini_sort(&stack_a,&stack_b,n);
 	else
 		the_big_sort(&stack_a,&stack_b,n);
-		
-	// while ((stack_a))
+	
+	// while ((stack_b))
 	// {
-	// 	printf("a:%d--->%d\n",stack_a->number,stack_a->index);
-	// 	stack_a =stack_a->next;
+	// 	printf("%d ",stack_b->number);
+	// 	stack_b=stack_b->next;
 	// }
 	return (0);
 }

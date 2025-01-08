@@ -6,12 +6,12 @@
 /*   By: zkhourba <zkhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 16:21:57 by zkhourba          #+#    #+#             */
-/*   Updated: 2025/01/07 19:03:44 by zkhourba         ###   ########.fr       */
+/*   Updated: 2025/01/08 02:58:39 by zkhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+#include <math.h>
 void	sort_two(t_stack **a,int n)
 {
 	t_stack	*f;
@@ -28,27 +28,15 @@ void	sort_two(t_stack **a,int n)
 }
 void mini_sort(t_stack **a,t_stack **b,int n)
 {
-	t_stack	*f;
-	t_stack	*sc;
-	t_stack	*t;
 
 	if(n < 3)
 		return (sort_two(a,n));
-	f = *a;
-	sc = f->next;
-	t = sc->next;
-	if(sc->number > t->number && f->number < t->number)
-		(pb(a,b),s(a,1),pa(a,b));
-	if(f->number < sc->number && sc->number > t->number)
-		rev_r(a,1);
-	if(f->number > sc->number && f->number < t->number)
-		s(a,1);
-	if((f->number > sc->number ) && (f->number > t->number)
-		 && sc->number < t->number)
+	if((*a)->number > (*a)->next->number && (*a)->number >(*a)->next->next->number)
 		r(a,1);
-	if((f->number > sc->number ) && (f->number > t->number)
-		 && sc->number > t->number)
-		 (r(a,1) , s(a,1));
+	if((*a)->number < (*a)->next->number && (*a)->next->number >(*a)->next->next->number)
+		rev_r(a,1);
+	if((*a)->number > (*a)->next->number)
+		s(a,1);
 }
 void	index_init(t_stack *top)
 {
@@ -89,7 +77,7 @@ void sort_the_list(t_stack **a,t_stack **b,int n,int range)
 
 	i = 0;
 
-	while (n)
+	while (i < n)
 	{
 		top = *a;
 		if(top->index <= i)
@@ -105,20 +93,77 @@ void sort_the_list(t_stack **a,t_stack **b,int n,int range)
 		}
 		else
 			r(a,1);
-		n--;
 	}
+}
+t_stack *biggest_index(t_stack *b)
+{
+	int max;
+	t_stack *biggest;
+	max = INT_MIN;
 	
+	while (b)
+	{
+		if(max <= b->index)
+		{
+			max = b->index;
+			biggest = b;
+		}
+		b = b->next;
+	}
+	return (biggest);
+}
+void new_pos(t_stack *b)
+{
+	int i;
+
+	i = 0;
+	while (b)
+	{
+		b->pos = i;
+		i++;
+		b = b->next;
+	}
+}
+void	last_sort(t_stack **a,t_stack **b,int n)
+{
+	int	mid;
+	int	i;
+	t_stack *top;
+	t_stack *big_node;
+	
+	top = *b;
+	mid = n / 2;
+	new_pos(*b);
+	while (*b)
+	{
+		big_node =  biggest_index(*b);
+		
+		if(big_node->pos <= mid)
+		{
+			while (*b != big_node)
+				r(b,0);	
+		}
+		else
+		{
+			while (*b != big_node)
+				rev_r(b,0);
+		}
+		mid = n / 2;
+		n--;
+		pa(a,b);
+		new_pos(*b);
+	}
 }
 void	the_big_sort(t_stack **a,t_stack **b,int n)
 {
 	int range;
 	
-	if(n >= 100)
+	if(n > 100)
 		range = 36;
 	else
-		range = 16;
-	
+		range = 13;
 	index_init(*a);
 	indexing_list(*a);
 	sort_the_list(a,b,n,range);
+	last_sort(a,b,n);
 }
