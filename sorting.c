@@ -6,7 +6,7 @@
 /*   By: zkhourba <zkhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 16:21:57 by zkhourba          #+#    #+#             */
-/*   Updated: 2025/01/08 02:58:39 by zkhourba         ###   ########.fr       */
+/*   Updated: 2025/01/08 07:20:24 by zkhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,60 @@ void	indexing_list(t_stack *top)
 		ptr1 = ptr1->next;
 	}
 }
+int its_sorted_des(t_stack *a, int n)
+{
+    t_stack *current;
+    int i;
+	int count;
+
+	count = 0;
+    if (!a || n <= 1) 
+        return (1);
+
+    current = a;
+	i = 0;
+   while (i < n -1)
+   {
+        if (current->number < current->next->number)
+            count--; 
+        current = current->next;
+		count++;
+		i++;
+    }
+    return (count); 
+}
+
+
+void sort_the_des_list(t_stack **a,t_stack **b,int n,int range)
+{
+	t_stack *top;
+	int		i;
+
+	i = 0;
+
+	while (i < n)
+	{
+		top = *a;
+		if(top->index <= i)
+		{
+			pb(a,b);
+			i++;
+		}
+		else if(top->index <= (i + range))
+		{
+			pb(a,b);
+			r(b,0);
+			i++;
+		}
+		else
+			rev_r(a,1);
+	}
+}
 void sort_the_list(t_stack **a,t_stack **b,int n,int range)
 {
 	t_stack *top;
+	t_stack	*last;
+	
 	int		i;
 
 	i = 0;
@@ -157,13 +208,22 @@ void	last_sort(t_stack **a,t_stack **b,int n)
 void	the_big_sort(t_stack **a,t_stack **b,int n)
 {
 	int range;
-	
+	int count;	
+
 	if(n > 100)
 		range = 36;
 	else
 		range = 13;
+		
 	index_init(*a);
 	indexing_list(*a);
+	count = its_sorted_des(*a,n/2);
+	if(count > n / 3 && n <= 100)
+	{
+		sort_the_des_list(a,b,n,13);
+		last_sort(a,b,n);
+			return;
+	}
 	sort_the_list(a,b,n,range);
 	last_sort(a,b,n);
 }
