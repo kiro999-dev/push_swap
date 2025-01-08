@@ -6,7 +6,7 @@
 /*   By: zkhourba <zkhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 13:10:16 by zkhourba          #+#    #+#             */
-/*   Updated: 2025/01/07 22:36:50 by zkhourba         ###   ########.fr       */
+/*   Updated: 2025/01/08 17:54:34 by zkhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void check_table(char **table, t_stack **head)
 		num = ft_atoi(table[i]);
 		if(num > INT_MAX || check_num(num,table[i]) || check_dup(*head,num))
 		{
-			// free_stack(head);
+			free_stack(head);
 			(ft_putstr_fd("Error\n",2),ft_free(table),exit(1));
 		}
 		add_to_stack(head,num,i);
@@ -68,8 +68,8 @@ void	pars_arg(char *arg, t_stack **head)
 
 void	parsing(char **argv, t_stack **head)
 {
-
 	int	i;
+	
 	i = 1;
 	while (argv[i])
 	{
