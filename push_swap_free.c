@@ -6,7 +6,7 @@
 /*   By: zkhourba <zkhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 13:07:29 by zkhourba          #+#    #+#             */
-/*   Updated: 2025/01/08 17:54:02 by zkhourba         ###   ########.fr       */
+/*   Updated: 2025/01/08 18:00:55 by zkhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@ void ft_free(char **ptr)
         ptr[i] = NULL;
         i++;
     }
+    free(ptr);
     ptr = NULL;
+    
 }
 void free_stack(t_stack **head)
 {
