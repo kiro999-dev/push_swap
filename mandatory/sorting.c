@@ -6,7 +6,7 @@
 /*   By: zkhourba <zkhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 16:21:57 by zkhourba          #+#    #+#             */
-/*   Updated: 2025/01/08 07:20:24 by zkhourba         ###   ########.fr       */
+/*   Updated: 2025/01/09 19:21:53 by zkhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	sort_two(t_stack **a,int n)
 		s(a,1);
 	return;
 }
-void mini_sort(t_stack **a,t_stack **b,int n)
+void mini_sort(t_stack **a,int n)
 {
 
 	if(n < 3)
@@ -61,8 +61,7 @@ void	indexing_num(t_stack *num,t_stack *top)
 void	indexing_list(t_stack *top)
 {
 	t_stack *ptr1;
-	t_stack	*ptr2;
-
+	
 	ptr1 = top;
 	while (ptr1)
 	{
@@ -92,7 +91,22 @@ int its_sorted_des(t_stack *a, int n)
     }
     return (count); 
 }
+int its_sorted(t_stack *a)
+{
 
+	t_stack *Next;
+	if(a == NULL || a->next == NULL)
+		return (1);
+	Next = a->next;
+	while (Next)
+	{
+		if(a->number > Next->number)
+			return (0);
+		a = a->next;
+		Next = Next->next;
+	}
+	return (1);
+}
 
 void sort_the_des_list(t_stack **a,t_stack **b,int n,int range)
 {
@@ -122,7 +136,6 @@ void sort_the_des_list(t_stack **a,t_stack **b,int n,int range)
 void sort_the_list(t_stack **a,t_stack **b,int n,int range)
 {
 	t_stack *top;
-	t_stack	*last;
 	
 	int		i;
 
@@ -178,7 +191,6 @@ void new_pos(t_stack *b)
 void	last_sort(t_stack **a,t_stack **b,int n)
 {
 	int	mid;
-	int	i;
 	t_stack *top;
 	t_stack *big_node;
 	

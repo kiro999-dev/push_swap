@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_op_2.c                                   :+:      :+:    :+:   */
+/*   push_swap_op_2_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zkhourba <zkhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 16:45:25 by zkhourba          #+#    #+#             */
-/*   Updated: 2025/01/08 00:46:49 by zkhourba         ###   ########.fr       */
+/*   Updated: 2025/01/09 20:23:14 by zkhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker_bonus.h"
 
 void r(t_stack **stack, int flag)
 {
@@ -20,9 +20,9 @@ void r(t_stack **stack, int flag)
     if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
         return;
 
-    if (flag)
+    if (flag == 1)
         ft_putstr_fd("ra\n", 1);
-    else
+    else if(flag == 0)
         ft_putstr_fd("rb\n", 1);
 
     top = *stack;           
@@ -33,8 +33,8 @@ void r(t_stack **stack, int flag)
 }
 void	rr(t_stack **stack_a,t_stack **stack_b)
 {
-	r(stack_a,1);
-	r(stack_b,0);
+	r(stack_a,-1);
+	r(stack_b,-1);
 }
 t_stack *before_last(t_stack *stack)
 {
@@ -62,9 +62,9 @@ void rev_r(t_stack **stack,int flag)
 		return ;
 	if(*stack == NULL)
 		return ;
-	if(flag)
+	if(flag == 1)
 		ft_putstr_fd("rra\n",1);
-	else
+	else if(flag == 0)
 		ft_putstr_fd("rrb\n",1);
 	
 	last =ft_last(*stack);
@@ -73,9 +73,9 @@ void rev_r(t_stack **stack,int flag)
 	last->next = *stack;
 	*stack = last;
 }
-void rrr(t_stack **stack_a,t_stack **stack_b,int flag)
+void rrr(t_stack **stack_a,t_stack **stack_b)
 {
-	rev_r(stack_a,1);
-	rev_r(stack_b,0);
+	rev_r(stack_a,-1);
+	rev_r(stack_b,-1);
 }
 

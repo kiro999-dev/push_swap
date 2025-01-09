@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zkhourba <zkhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/05 19:35:20 by zkhourba          #+#    #+#             */
-/*   Updated: 2025/01/09 17:12:45 by zkhourba         ###   ########.fr       */
+/*   Created: 2024/10/23 19:14:42 by zkhourba          #+#    #+#             */
+/*   Updated: 2025/01/09 18:25:55 by zkhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include <stdio.h>
+#include "checker_bonus.h"
 
-int main(int argc , char **argv)
+void	ft_putstr_fd(char *s, int fd)
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
-	int		n;
-	if (argc == 1)
-		return (0);
-	stack_a = NULL;
-	stack_b = NULL;
-	parsing(argv,&stack_a);
-	n = list_len(stack_a);
-	if(n <= 3)
-		mini_sort(&stack_a,&stack_b,n);
-	else
-		the_big_sort(&stack_a,&stack_b,n);
-	
-	free_stack(&stack_a);
-	return (0);
+	int	i;
+
+	if (!s)
+		return ;
+	i = 0;
+	while (s[i])
+	{
+		write(fd,&s[i],1);
+		i++;
+	}
 }

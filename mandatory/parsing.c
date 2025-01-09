@@ -6,7 +6,7 @@
 /*   By: zkhourba <zkhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 13:10:16 by zkhourba          #+#    #+#             */
-/*   Updated: 2025/01/09 17:03:41 by zkhourba         ###   ########.fr       */
+/*   Updated: 2025/01/09 18:11:58 by zkhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	pars_arg(char *arg, t_stack **head)
 void	parsing(char **argv, t_stack **head)
 {
 	int	i;
-	
+
 	i = 1;
 	while (argv[i])
 	{

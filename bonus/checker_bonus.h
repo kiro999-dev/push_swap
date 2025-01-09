@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   checker_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zkhourba <zkhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/05 19:35:17 by zkhourba          #+#    #+#             */
-/*   Updated: 2025/01/09 17:00:38 by zkhourba         ###   ########.fr       */
+/*   Created: 2025/01/09 18:04:34 by zkhourba          #+#    #+#             */
+/*   Updated: 2025/01/09 19:45:21 by zkhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+#ifndef CHECKER_H
+#define CHECKER_H
 #include <limits.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -34,14 +34,14 @@ void 		add_to_stack(t_stack **head,int num,int pos);
 void 		free_stack(t_stack **head);
 void		parsing(char **argv, t_stack **head);
 void 		s(t_stack **stack,int flag);
-void   		pa(t_stack **stack_a ,t_stack **stack_b);
-void   		pb(t_stack **stack_a ,t_stack **stack_b);
-void 		r(t_stack **stack,int flag);
-void 		rev_r(t_stack **stack,int flag);
 int 		list_len(t_stack *stack);
+void    	pa(t_stack **stack_a ,t_stack **stack_b,int flag);
+void  		pb(t_stack **stack_a ,t_stack **stack_b,int flag);
+void 		r(t_stack **stack,int flag);
+void 		ss(t_stack **stack_a , t_stack **stack_b);
+void 		rev_r(t_stack **stack,int flag);
 t_stack 	*ft_last(t_stack *stack);
-void		rrr(t_stack **stack_a,t_stack **stack_b,int flag);
-void 		s(t_stack **stack,int flag);
-void 		mini_sort(t_stack **a,t_stack **b,int n);
-void		the_big_sort(t_stack **a,t_stack **b,int n);
+void		rr(t_stack **stack_a,t_stack **stack_b);
+void		rrr(t_stack **stack_a,t_stack **stack_b);
+char		*get_next_line(int fd);
 #endif 
