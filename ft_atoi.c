@@ -6,7 +6,7 @@
 /*   By: zkhourba <zkhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 14:31:40 by zkhourba          #+#    #+#             */
-/*   Updated: 2025/01/07 22:36:55 by zkhourba         ###   ########.fr       */
+/*   Updated: 2025/01/09 17:00:06 by zkhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int ft_isdigit(int c)
 	else 
 		return(0);
 }
-long long	ft_atoi(const char *str)
+long long	ft_atoi(const char *str,int *flagerr)
 {
 	int			i;
 	int			flag;
@@ -44,6 +44,7 @@ long long	ft_atoi(const char *str)
 	i = skip(str);
 	res = 0;
 	flag = 1;
+	*flagerr = 0;
 	if (str[i] == '-')
 	{
 		flag = -1;
@@ -54,14 +55,14 @@ long long	ft_atoi(const char *str)
 	while (ft_isdigit(str[i]))
 	{
 		if (res > ((9223372036854775807 - (str[i] - '0')) / 10) && flag == -1)
-			return (0);
+			return (*flagerr = 1,0);
 		else if (res > ((9223372036854775807 - (str[i] - '0')) / 10)
 			&& flag == 1)
-			return (-1);
+			return (*flagerr = 1,-1);
 		res = res * 10 + (str[i] - '0');
 		i++;
 	}
 	if(str[i] != '\0')
-		flag = 0;
+		*flagerr = 1;
 	return (res * flag);
 }

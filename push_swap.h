@@ -6,7 +6,7 @@
 /*   By: zkhourba <zkhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 19:35:17 by zkhourba          #+#    #+#             */
-/*   Updated: 2025/01/08 02:58:48 by zkhourba         ###   ########.fr       */
+/*   Updated: 2025/01/09 17:00:38 by zkhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct s_stack
 char		**ft_split(const char *s, char c);
 void		ft_putstr_fd(char *s, int fd);
 void		ft_free(char **ptr);
-long long	ft_atoi(const char *str);
+long long	ft_atoi(const char *str,int *flagerr);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
 void 		add_to_stack(t_stack **head,int num,int pos);
 void 		free_stack(t_stack **head);
