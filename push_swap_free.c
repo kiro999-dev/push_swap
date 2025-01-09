@@ -6,7 +6,7 @@
 /*   By: zkhourba <zkhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 13:07:29 by zkhourba          #+#    #+#             */
-/*   Updated: 2025/01/08 18:00:55 by zkhourba         ###   ########.fr       */
+/*   Updated: 2025/01/08 18:06:52 by zkhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ void free_stack(t_stack **head)
         return ;
     if(*head == NULL)
         return;
+    
+    tmp = *head;
     while (tmp)
     {
         tmp = (*head)->next;

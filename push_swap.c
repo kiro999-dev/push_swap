@@ -6,7 +6,7 @@
 /*   By: zkhourba <zkhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 19:35:20 by zkhourba          #+#    #+#             */
-/*   Updated: 2025/01/08 17:55:17 by zkhourba         ###   ########.fr       */
+/*   Updated: 2025/01/09 16:55:23 by zkhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,5 @@ int main(int argc , char **argv)
 		the_big_sort(&stack_a,&stack_b,n);
 	
 	free_stack(&stack_a);
-	// while ((stack_b))
-	// {
-	// 	printf("%d ",stack_b->number);
-	// 	stack_b=stack_b->next;
-	// }
 	return (0);
 }
