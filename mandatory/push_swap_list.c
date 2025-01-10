@@ -6,61 +6,61 @@
 /*   By: zkhourba <zkhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 11:14:13 by zkhourba          #+#    #+#             */
-/*   Updated: 2025/01/07 22:04:29 by zkhourba         ###   ########.fr       */
+/*   Updated: 2025/01/10 17:54:28 by zkhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack *creat_node(int num,int pos)
+t_stack	*creat_node(int num, int pos)
 {
-	t_stack *node;
-	
+	t_stack	*node;
+
 	node = malloc(sizeof(t_stack));
-	
-	if(node == NULL)
+	if (node == NULL)
 		return (NULL);
-		
 	node->next = NULL;
 	node->number = num;
 	node->pos = pos;
-	return(node);
-	
+	return (node);
 }
-void add_to_stack(t_stack **head,int num,int pos)
+
+void	add_to_stack(t_stack **head, int num, int pos)
 {
-	t_stack *node;
-	t_stack *tmp;
-	
-	node = creat_node(num,pos);
-	if(head == NULL)
+	t_stack	*node;
+	t_stack	*tmp;
+
+	node = creat_node(num, pos);
+	if (head == NULL)
 		return ;
-	if(*head == NULL)
+	if (*head == NULL)
 	{
-		*head =node;
-		return;
+		*head = node;
+		return ;
 	}
 	tmp = ft_last(*head);
 	tmp->next = node;
 }
-t_stack *ft_last(t_stack *stack)
+
+t_stack	*ft_last(t_stack *stack)
 {
-	if(stack == NULL)
-		return(stack);
+	if (stack == NULL)
+		return (stack);
 	while (stack->next)
 	{
 		stack = stack->next;
 	}
 	return (stack);
 }
-int list_len(t_stack *stack)
+
+int	list_len(t_stack *stack)
 {
-	int n;
+	int	n;
 
 	n = 0;
 	while (stack)
 	{
-		stack= stack->next;
+		stack = stack->next;
 		n++;
 	}
 	return (n);

@@ -4,10 +4,11 @@ SRC_B = $(SRC_B_DIR)/checker_bonus.c  $(SRC_B_DIR)/ft_atoi_bonus.c $(SRC_B_DIR)/
 		$(SRC_B_DIR)/ft_strncmp_bonus.c $(SRC_B_DIR)/get_next_line_bonus.c $(SRC_B_DIR)/get_next_line_utils_bonus.c $(SRC_B_DIR)/parsing_bonus.c \
 		$(SRC_B_DIR)/push_swap_free_bonus.c $(SRC_B_DIR)/push_swap_list_bonus.c \
 		$(SRC_B_DIR)/push_swap_op_1_bonus.c \
-		$(SRC_B_DIR)/push_swap_op_2_bonus.c
+		$(SRC_B_DIR)/push_swap_op_2_bonus.c 
 
 SRC =   $(SRC_DIR)/ft_atoi.c  $(SRC_DIR)/ft_putstr_fd.c  $(SRC_DIR)/ft_split.c  $(SRC_DIR)/parsing.c  $(SRC_DIR)/push_swap_free.c \
-		 $(SRC_DIR)/push_swap_list.c  $(SRC_DIR)/push_swap_op_1.c  $(SRC_DIR)/push_swap_op_2.c $(SRC_DIR)/push_swap.c  $(SRC_DIR)/sorting.c
+		 $(SRC_DIR)/push_swap_list.c  $(SRC_DIR)/push_swap_op_1.c  $(SRC_DIR)/push_swap_op_2.c $(SRC_DIR)/push_swap.c  $(SRC_DIR)/sorting.c \
+		 $(SRC_DIR)/sorting_utils2.c  $(SRC_DIR)/sorting_utils.c  $(SRC_DIR)/mini_sort.c
 OBJ = $(SRC:.c=.o)
 B_OBJ = $(SRC_B:.c=.o)
 NAME = push_swap
