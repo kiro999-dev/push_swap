@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zkhourba <zkhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 14:31:40 by zkhourba          #+#    #+#             */
-/*   Updated: 2025/01/09 18:24:54 by zkhourba         ###   ########.fr       */
+/*   Created: 2025/01/10 18:19:55 by zkhourba          #+#    #+#             */
+/*   Updated: 2025/01/10 18:20:14 by zkhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,28 @@ static int	skip(const char *s)
 		i++;
 	return (i);
 }
-int ft_isdigit(int c)
+
+int	ft_isdigit(int c)
 {
-	if(c>='0' && c <='9')
+	if (c >= '0' && c <= '9')
 		return (1);
-	else 
-		return(0);
+	else
+		return (0);
 }
-long long	ft_atoi(const char *str,int *flagerr)
+
+int	signe(const char *str, int i, int *ptr_flag)
+{
+	if (str[i] == '-')
+	{
+		*ptr_flag = -1;
+		i++;
+	}
+	else if (str[i] == '+')
+		i++;
+	return (i);
+}
+
+long long	ft_atoi(const char *str, int *flagerr)
 {
 	int			i;
 	int			flag;
@@ -45,24 +59,18 @@ long long	ft_atoi(const char *str,int *flagerr)
 	res = 0;
 	flag = 1;
 	*flagerr = 0;
-	if (str[i] == '-')
-	{
-		flag = -1;
-		i++;
-	}
-	else if (str[i] == '+')
-		i++;
+	i = signe(str, i, &flag);
 	while (ft_isdigit(str[i]))
 	{
 		if (res > ((9223372036854775807 - (str[i] - '0')) / 10) && flag == -1)
-			return (*flagerr = 1,0);
+			return (*flagerr = 1, 0);
 		else if (res > ((9223372036854775807 - (str[i] - '0')) / 10)
 			&& flag == 1)
-			return (*flagerr = 1,-1);
+			return (*flagerr = 1, -1);
 		res = res * 10 + (str[i] - '0');
 		i++;
 	}
-	if(str[i] != '\0')
+	if (str[i] != '\0')
 		*flagerr = 1;
 	return (res * flag);
 }

@@ -3,6 +3,7 @@
         "push_swap.h": "c",
         "sstream": "c",
         "algorithm": "c",
-        "random": "c"
+        "random": "c",
+        "stdio.h": "c"
     }
 }

@@ -6,12 +6,11 @@
 /*   By: zkhourba <zkhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 17:16:59 by zkhourba          #+#    #+#             */
-/*   Updated: 2025/01/10 17:17:03 by zkhourba         ###   ########.fr       */
+/*   Updated: 2025/01/10 18:57:47 by zkhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include <stdio.h>
+#include "checker_bonus.h"
 
 int	check_dup(t_stack *head, int num)
 {
