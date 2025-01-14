@@ -6,7 +6,7 @@
 /*   By: zkhourba <zkhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 18:05:32 by zkhourba          #+#    #+#             */
-/*   Updated: 2025/01/11 16:45:26 by zkhourba         ###   ########.fr       */
+/*   Updated: 2025/01/12 19:42:48 by zkhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,7 @@ void	exec_op(t_list *head, t_stack **a, t_stack **b)
 {
 	while (head && head->line)
 	{
-		if (op(a, b, head->line) == 0)
-			(ft_putstr_fd("Error\n", 2), free_stack(a), free_stack(b), exit(1));
+		op(a, b, head->line);
 		head = head->next;
 	}
 }
@@ -46,17 +45,23 @@ void	read_and_exc(t_stack **a, t_stack **b)
 
 	head = NULL;
 	line = get_next_line(0);
+	if (line == NULL)
+		return ;
 	add_to_list(&head, line);
-	if (op_check(head->line) == 0)
-		(ft_putstr_fd("Error\n", 2), free_stack(a), free_stack(a), exit(1));
+	if (op_check(line) == 0)
+		(ft_putstr_fd("Error\n", 2), free_stack(a), free_list(&head), exit(1));
 	while (line)
 	{
 		line = get_next_line(0);
-		if (op_check(head->line) == 0)
-			(ft_putstr_fd("Error\n", 2), free_stack(a), free_stack(a), exit(1));
+		if (line == NULL)
+			break ;
+		if (op_check(line) == 0)
+			(ft_putstr_fd("Error\n", 2), free_stack(a),
+				free_list(&head), exit(1));
 		add_to_list(&head, line);
 	}
 	exec_op(head, a, b);
+	free_list(&head);
 }
 
 int	main(int argc, char **argv)
@@ -70,7 +75,7 @@ int	main(int argc, char **argv)
 	stack_b = NULL;
 	parsing(argv, &stack_a);
 	read_and_exc(&stack_a, &stack_b);
-	if (its_sorted(stack_a) == 1)
+	if (its_sorted(stack_a) == 1 && (stack_b == NULL))
 		ft_putstr_fd("OK\n", 1);
 	else
 		ft_putstr_fd("KO\n", 1);

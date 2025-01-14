@@ -6,7 +6,7 @@
 /*   By: zkhourba <zkhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 13:10:16 by zkhourba          #+#    #+#             */
-/*   Updated: 2025/01/10 17:33:05 by zkhourba         ###   ########.fr       */
+/*   Updated: 2025/01/12 16:58:57 by zkhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	check_table(char **table, t_stack **head)
 	while (table[i])
 	{
 		num = ft_atoi(table[i], &flag);
-		if (num > INT_MAX || flag || check_dup(*head, num))
+		if (num > INT_MAX || num < INT_MIN || flag || check_dup(*head, num))
 		{
 			free_stack(head);
 			(ft_putstr_fd("Error\n", 2), ft_free(table), exit(1));

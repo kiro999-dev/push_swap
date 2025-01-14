@@ -6,11 +6,40 @@
 /*   By: zkhourba <zkhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 16:21:57 by zkhourba          #+#    #+#             */
-/*   Updated: 2025/01/10 17:51:57 by zkhourba         ###   ########.fr       */
+/*   Updated: 2025/01/13 19:37:25 by zkhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	sort_5(t_stack **a, t_stack **b)
+{
+	t_stack	*smallest;
+
+	smallest = smallest_index(*a);
+	while (*a != smallest)
+	{
+		if (smallest->pos <= 2)
+			r(a, 1);
+		else
+			rev_r(a, 1);
+		new_pos(*a);
+	}
+	pb(a, b);
+	smallest = smallest_index(*a);
+	while (*a != smallest)
+	{
+		if (smallest->pos <= 2)
+			r(a, 1);
+		else
+			rev_r(a, 1);
+		new_pos(*a);
+	}
+	pb(a, b);
+	mini_sort(a, 3);
+	pa(a, b);
+	pa(a, b);
+}
 
 void	sort_the_des_list(t_stack **a, t_stack **b, int n, int range)
 {
@@ -95,12 +124,18 @@ void	the_big_sort(t_stack **a, t_stack **b, int n)
 	int	range;
 	int	count;	
 
-	if (n > 100)
-		range = 36;
+	if (n > 250)
+		range = 38;
 	else
 		range = 13;
 	index_init(*a);
 	indexing_list(*a);
+	if (n == 5)
+	{
+		new_pos(*a);
+		sort_5(a, b);
+		return ;
+	}
 	count = its_sorted_des(*a, n / 2);
 	if (count > n / 3 && n <= 100)
 	{

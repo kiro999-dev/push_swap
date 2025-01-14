@@ -6,7 +6,7 @@
 /*   By: zkhourba <zkhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 16:45:25 by zkhourba          #+#    #+#             */
-/*   Updated: 2025/01/11 15:38:25 by zkhourba         ###   ########.fr       */
+/*   Updated: 2025/01/14 16:00:14 by zkhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	rev_r(t_stack **stack, int flag)
 	t_stack	*last;
 	t_stack	*bef_last;
 
-	if (stack == NULL)
+	if (*stack == NULL || (*stack)->next == NULL)
 		return ;
 	if (*stack == NULL)
 		return ;

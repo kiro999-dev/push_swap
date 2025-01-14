@@ -6,7 +6,7 @@
 /*   By: zkhourba <zkhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 13:07:29 by zkhourba          #+#    #+#             */
-/*   Updated: 2025/01/10 17:20:31 by zkhourba         ###   ########.fr       */
+/*   Updated: 2025/01/12 15:29:21 by zkhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,24 @@ void	free_stack(t_stack **head)
 	{
 		tmp = (*head)->next;
 		free(*head);
+		*head = tmp;
+	}
+}
+
+void	free_list(t_list **head)
+{
+	t_list	*tmp;
+
+	if (head == NULL)
+		return ;
+	if (*head == NULL)
+		return ;
+	tmp = *head;
+	while (tmp)
+	{
+		tmp = (*head)->next;
+		free(*head);
+		free((*head)->line);
 		*head = tmp;
 	}
 }

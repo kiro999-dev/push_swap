@@ -6,7 +6,7 @@
 /*   By: zkhourba <zkhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 19:35:17 by zkhourba          #+#    #+#             */
-/*   Updated: 2025/01/10 18:11:11 by zkhourba         ###   ########.fr       */
+/*   Updated: 2025/01/12 15:46:10 by zkhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void		the_big_sort(t_stack **a, t_stack **b, int n);
 int			its_sorted(t_stack *a);
 void		new_pos(t_stack *b);
 t_stack		*biggest_index(t_stack *b);
+t_stack		*smallest_index(t_stack *stack);
 void		index_init(t_stack *top);
 void		indexing_list(t_stack *top);
 int			its_sorted_des(t_stack *a, int n);

@@ -6,7 +6,7 @@
 /*   By: zkhourba <zkhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 18:04:34 by zkhourba          #+#    #+#             */
-/*   Updated: 2025/01/11 16:44:49 by zkhourba         ###   ########.fr       */
+/*   Updated: 2025/01/12 19:39:23 by zkhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ char		*get_next_line(int fd);
 t_list		*creat_node_list(char *line);
 void		add_to_list(t_list **head, char *line);
 t_list		*ft_last_list(t_list *stack);
-int			op(t_stack **a, t_stack **b, char *line);
+void		op(t_stack **a, t_stack **b, char *line);
 int			op_check(char *line);
+void		free_list(t_list **head);
+
 #endif 

@@ -6,7 +6,7 @@
 /*   By: zkhourba <zkhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 16:45:25 by zkhourba          #+#    #+#             */
-/*   Updated: 2025/01/10 17:29:30 by zkhourba         ###   ########.fr       */
+/*   Updated: 2025/01/14 16:02:41 by zkhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	rev_r(t_stack **stack, int flag)
 
 	if (stack == NULL)
 		return ;
-	if (*stack == NULL)
+	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
 		return ;
 	if (flag)
 		ft_putstr_fd("rra\n", 1);

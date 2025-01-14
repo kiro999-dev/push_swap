@@ -6,7 +6,7 @@
 /*   By: zkhourba <zkhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 16:10:07 by zkhourba          #+#    #+#             */
-/*   Updated: 2025/01/09 19:22:14 by zkhourba         ###   ########.fr       */
+/*   Updated: 2025/01/12 19:33:46 by zkhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # endif
 # include <stdlib.h>
 # include <unistd.h>
+# include "checker_bonus.h"
 
 char	*get_next_line(int fd);
 size_t	ft_strlen(const char *s);

@@ -6,7 +6,7 @@
 /*   By: zkhourba <zkhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 17:49:29 by zkhourba          #+#    #+#             */
-/*   Updated: 2025/01/10 17:57:22 by zkhourba         ###   ########.fr       */
+/*   Updated: 2025/01/12 16:23:43 by zkhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,22 @@ int	its_sorted(t_stack *a)
 		nextptr = nextptr->next;
 	}
 	return (1);
+}
+
+t_stack	*smallest_index(t_stack *stack)
+{
+	int		min;
+	t_stack	*smallest;
+
+	min = INT_MAX;
+	while (stack)
+	{
+		if (min >= stack->index)
+		{
+			min = stack->index;
+			smallest = stack;
+		}
+		stack = stack->next;
+	}
+	return (smallest);
 }
